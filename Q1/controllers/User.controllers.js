@@ -46,7 +46,7 @@ export const updaetUser =async(req,res)=>{
         const uersnew= await User.findByPk(Number(id));
 
         
-        if(user===null){
+        if(uersnew===null){
             return res.status(404).JSON({error:"not find"})
         }
 
@@ -65,13 +65,12 @@ export const deleteUserSingle =async(req,res)=>{
         const uersdelet= await User.findByPk(Number(id));
 
         
-        if(user===null){
+        if(uersdelet===null){
             return res.status(404).JSON({error:"not find"})
         }
 
         await uersdelet.destroy();
-        res.status(200).json({ message: "Post deleted successfully" });
-
+        res.status(200).send(uersdelet);
 
         
     } catch (error) {
