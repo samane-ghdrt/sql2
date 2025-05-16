@@ -14,7 +14,7 @@ const User =sequelize.define("user",{
       }
     }
 }) 
-User.hasMany(Post,{foreignKey:{allowNull:false}});
+User.hasMany(Post,{foreignKey:{name: 'postId',allowNull:true}});
 Post.belongsTo(User);
 
 
